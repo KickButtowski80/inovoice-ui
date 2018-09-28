@@ -7,8 +7,6 @@ class Contacts {
         {id: 2, name:'Igal T' , email: 'igaligal@gmail.com'},
         {id: 3, name:'April L' , email: 'AprilL@yahoo.com'},
     ];
-
-
 }
 
     
