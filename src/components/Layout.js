@@ -29,8 +29,7 @@ class Layout extends React.Component {
             console.log(this.props.toString())
             return(
                 <div id="Layout">
-                    <div className="pure-g">
-                    test                     
+                    <div className="pure-g">                     
                         <NewContact  handleAddContact= {this.addContact} />
                     </div>
                     <div className="pure-g">
