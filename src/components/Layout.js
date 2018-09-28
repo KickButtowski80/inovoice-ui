@@ -30,7 +30,7 @@ class Layout extends React.Component {
             return(
                 <div id="Layout">
                     <div className="pure-g">
-                        hello 
+                     
                         <NewContact  handleAddContact= {this.addContact} />
                     </div>
                     <div className="pure-g">
