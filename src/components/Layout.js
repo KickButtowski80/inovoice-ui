@@ -5,13 +5,14 @@ import './Layout.css';
 import './NewContact'
 import NewContact from '../components/NewContact';
 import {observer} from 'mobx-react';
-@observer(['contacts'])
+
+@observer(['store'])
 class Layout extends React.Component { 
         constructor(props) {
             super(props)
         }   
         state ={
-            contacts: data ,
+            contacts: this.props.store.contacts.all ,
         }    
     
         addContact = (name, email) =>{      
@@ -33,9 +34,9 @@ class Layout extends React.Component {
                         <NewContact  handleAddContact= {this.addContact} />
                     </div>
                     <div className="pure-g">
-                         {this.props.contacts.all.slice().map(info => 
-                            <Contact name={info.name} email={info.email} key={info.id}/>                    
-                            )}                
+                            {this.state.contacts.map(info => 
+                            <Contact name={info.name} email={info.email} key={info.id}/>
+                            )}
                     </div>
                 </div>           
             )
