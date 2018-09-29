@@ -5,7 +5,7 @@ import './Layout.css';
 import './NewContact'
 import NewContact from '../components/NewContact';
 import {observer} from 'mobx-react';
-
+@observer(['contacts'])
 class Layout extends React.Component { 
         constructor(props) {
             super(props)
@@ -33,7 +33,7 @@ class Layout extends React.Component {
                         <NewContact  handleAddContact= {this.addContact} />
                     </div>
                     <div className="pure-g">
-                         {this.state.contacts.map(info => 
+                         {this.props.contacts.all.slice().map(info => 
                             <Contact name={info.name} email={info.email} key={info.id}/>                    
                             )}                
                     </div>
@@ -43,5 +43,5 @@ class Layout extends React.Component {
     } 
 
 
-export default observer(Layout);
+export default Layout;
 

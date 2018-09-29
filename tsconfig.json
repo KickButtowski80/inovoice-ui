@@ -1,0 +1,15 @@
+{  
+
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "allowJs": true,
+
+    },
+    
+    "include": [
+        "**/*"
+    ],
+    "exclude": [
+        ""
+    ]
+}
