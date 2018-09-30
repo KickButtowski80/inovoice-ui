@@ -10,5 +10,5 @@ class Contacts {
 
 
 }
-const store = new Contacts();
-export default store;
+const contacts = new Contacts();
+export default contacts;

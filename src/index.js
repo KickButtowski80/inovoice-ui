@@ -8,8 +8,10 @@ import stores from './stores'
 import registerServiceWorker from './registerServiceWorker';
 
 
-<Provider contacts={stores}>
-     
-</Provider>
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={stores}> 
+        <App />
+    </Provider>
+, document.getElementById('root'));
+
 registerServiceWorker();
