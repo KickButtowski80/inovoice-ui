@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {inject, observer} from 'mobx-react';
+
+@inject(['store'])
 class NewContact  extends Component{
  
    handleAddContact = (e) =>{
@@ -7,7 +10,7 @@ class NewContact  extends Component{
           const email =  e.target.elements.email.value.trim();
 
           this.props.handleAddContact(name, email);
-
+          this.props.store.contacts.addContact(name, email);
           e.target.elements.name.value = '';
           e.target.elements.email.value = '';
       };

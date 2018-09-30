@@ -1,4 +1,4 @@
-import { observable} from 'mobx';
+import { action,  computed, observable} from 'mobx';
 
 
 class Contacts {
@@ -7,7 +7,15 @@ class Contacts {
         {id: 2, name:'Igal T' , email: 'igaligal@gmail.com'},
         {id: 3, name:'April L' , email: 'AprilL@yahoo.com'},
     ];
-
+    
+    @action 
+    addContact = (contact) => {
+       this.all.push(contact);
+    }
+    @computed 
+    get contactsCount(){
+        return this.all.length;
+    }
 
 }
 const contacts = new Contacts();

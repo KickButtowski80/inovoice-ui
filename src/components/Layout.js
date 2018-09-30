@@ -4,9 +4,10 @@ import data from './data';
 import './Layout.css';
 import './NewContact'
 import NewContact from '../components/NewContact';
-import {observer} from 'mobx-react';
+import {inject} from 'mobx-react';
+import {action} from 'mobx';
 
-@observer(['store'])
+@inject(['store'])
 class Layout extends React.Component { 
         constructor(props) {
             super(props)
@@ -14,11 +15,11 @@ class Layout extends React.Component {
         state ={
             contacts: this.props.store.contacts.all ,
         }    
-    
-        addContact = (name, email) =>{      
-          
+        
+     
+        addContact = (name, email) =>{                
            const list = this.state.contacts;    
-           const newId =  1 
+           const newId =  list[list.lenght-1] + 1
            this.setState({ 
                contacts: this.state.contacts.concat([{id: newId , 
                                                 name:  name ,
@@ -27,9 +28,10 @@ class Layout extends React.Component {
      
         }  
         render() { 
-            console.log(this.props.toString())
+            let { contactsobj } =this.props.store.contacts;
             return(
                 <div id="Layout">
+                <h1>Number of people in Contacts are {this.props.store.contacts.contactsCount}</h1>
                     <div className="pure-g">                     
                         <NewContact  handleAddContact= {this.addContact} />
                     </div>
